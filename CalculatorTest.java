@@ -1,42 +1,44 @@
-package src;
-
-import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 class CalculatorTest {
+    private Calculator calculator;
 
-    @org.junit.jupiter.api.Test
-    void add() {
-        Calculator calculator = new Calculator();
-        double first = 1.0;
-        double second = 2.0;
-        double result = calculator.add(first,second);
-        Assert.assertEquals(3.0, result, 0.1);
+    @Before
+    public void setUp() {
+        calculator = new Calculator();
     }
 
-    @org.junit.jupiter.api.Test
-    void subtract() {
-        Calculator calculator = new Calculator();
+    @Test
+    public void shouldReturnSumWhenAddingTwoNumbers() {
         double first = 1.0;
         double second = 2.0;
-        double result = calculator.subtract(first,second);
-        Assert.assertEquals(-1.0, result, 0.1);
+        double result = calculator.add(first, second);
+        assertEquals(3.0, result, 0.1);
     }
 
-    @org.junit.jupiter.api.Test
-    void multiply() {
-        Calculator calculator = new Calculator();
+    @Test
+    public void shouldReturnDifferenceWhenSubtractingTwoNumbers() {
         double first = 1.0;
         double second = 2.0;
-        double result = calculator.multiply(first,second);
-        Assert.assertEquals(2.0, result, 0.1);
+        double result = calculator.subtract(first, second);
+        assertEquals(-1.0, result, 0.1);
     }
 
-    @org.junit.jupiter.api.Test
-    void divide() {
-        Calculator calculator = new Calculator();
+    @Test
+    public void shouldReturnProductWhenMultiplyingTwoNumbers() {
         double first = 1.0;
         double second = 2.0;
-        double result = calculator.divide(first,second);
-        Assert.assertEquals(0.5, result, 0.1);
+        double result = calculator.multiply(first, second);
+        assertEquals(2.0, result, 0.1);
+    }
+
+    @Test
+    public void shouldReturnQuotientWhenDividingTwoNumbers() {
+        double first = 1.0;
+        double second = 2.0;
+        double result = calculator.divide(first, second);
+        assertEquals(0.5, result, 0.1);
     }
 }
